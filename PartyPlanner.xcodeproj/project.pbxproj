@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75A4636C261278EA0024220D /* PartyPlannerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4636B261278EA0024220D /* PartyPlannerListItem.swift */; };
 		75F0E07A260942F200794B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F0E079260942F200794B2E /* AppDelegate.swift */; };
 		75F0E07C260942F200794B2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F0E07B260942F200794B2E /* SceneDelegate.swift */; };
 		75F0E07E260942F200794B2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F0E07D260942F200794B2E /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75A4636B261278EA0024220D /* PartyPlannerListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyPlannerListItem.swift; sourceTree = "<group>"; };
 		75F0E076260942F200794B2E /* PartyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F0E079260942F200794B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F0E07B260942F200794B2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				75F0E079260942F200794B2E /* AppDelegate.swift */,
 				75F0E07B260942F200794B2E /* SceneDelegate.swift */,
+				75A4636B261278EA0024220D /* PartyPlannerListItem.swift */,
 				75F0E07D260942F200794B2E /* ViewController.swift */,
 				75F0E0952609554D00794B2E /* DetailViewController.swift */,
 				75F0E07F260942F200794B2E /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A4636C261278EA0024220D /* PartyPlannerListItem.swift in Sources */,
 				75F0E07E260942F200794B2E /* ViewController.swift in Sources */,
 				75F0E07A260942F200794B2E /* AppDelegate.swift in Sources */,
 				75F0E07C260942F200794B2E /* SceneDelegate.swift in Sources */,

@@ -120,6 +120,10 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5k2-El-JnV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemTextField" destination="ewO-Eh-Vdb" id="8VY-KM-IJ1"/>
+                        <outlet property="personResponsibleTextField" destination="dh3-kC-7Kt" id="Tne-Gv-hFp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egz-S0-UFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

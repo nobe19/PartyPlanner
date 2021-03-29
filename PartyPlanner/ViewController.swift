@@ -10,10 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    struct PartyPlannerListItem {
-        var item: String
-        var personResponsible: String
-    }
     
     var partyPlannerArray: [PartyPlannerListItem] = []
     var partyItems = ["Potato Chips",
@@ -53,7 +49,25 @@ class ViewController: UIViewController {
             partyPlannerArray.append(newPartyListItem)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let destination = segue.destination as! DetailViewController
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.partyPlannerListItem = partyPlannerArray[selectedIndexPath.row]
+        } else {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+        }
+    }
+    
+    
+    
 }
+
+
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

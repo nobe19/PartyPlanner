@@ -10,10 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var personResponsibleTextField: UITextField!
-    
-    
-    
-    
+        
     
     var partyPlannerListItem: PartyPlannerListItem!
     
@@ -29,7 +26,10 @@ class DetailViewController: UIViewController {
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        partyPlannerListItem.item = itemTextField.text!
+        partyPlannerListItem.personResponsible = personResponsibleTextField.text!
+    }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         let isPresentingInAddMode = presentingViewController is UINavigationController

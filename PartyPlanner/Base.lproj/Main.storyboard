@@ -60,6 +60,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rAi-qn-mcK">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="LJe-ds-dcc">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="rmx-QG-jOd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vs0-ru-A4Z">
                             <connections>
                                 <segue destination="Sx7-7J-9Hh" kind="presentation" identifier="AddDetail" id="Uhq-vu-qjH"/>
@@ -67,6 +72,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBarButton" destination="vs0-ru-A4Z" id="gtY-bb-HSq"/>
+                        <outlet property="editBarButton" destination="LJe-ds-dcc" id="qeD-UH-660"/>
                         <outlet property="tableView" destination="T6j-Cc-kpz" id="ica-fV-IqN"/>
                     </connections>
                 </viewController>
@@ -118,7 +125,11 @@
                                 <action selector="cancelButtonPressed:" destination="MSX-V3-XTR" id="22N-If-fUr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5k2-El-JnV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5k2-El-JnV">
+                            <connections>
+                                <segue destination="37a-Ui-gLX" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="pca-dl-69d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="itemTextField" destination="ewO-Eh-Vdb" id="8VY-KM-IJ1"/>
@@ -126,6 +137,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egz-S0-UFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="37a-Ui-gLX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2801.449275362319" y="75"/>
         </scene>

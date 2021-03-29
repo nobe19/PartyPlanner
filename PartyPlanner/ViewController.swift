@@ -10,6 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
+    @IBOutlet weak var addBarButton: UIBarButtonItem!
+    
     
     var partyPlannerArray: [PartyPlannerListItem] = []
     var partyItems = ["Potato Chips",
@@ -62,12 +65,33 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
+        let source = segue.source as! DetailViewController
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            partyPlannerArray[selectedIndexPath.row] = source.partyPlannerListItem
+            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+        } else {
+            let newIndexPath = IndexPath(row: partyItems.count, section: 0)
+            partyPlannerArray.append(source.partyPlannerListItem)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            editBarButton.title = "Edit"
+            addBarButton.isEnabled = true
+        } else {
+            tableView.setEditing(true, animated: true)
+            editBarButton.title = "Done"
+            addBarButton.isEnabled = false
+        }
+    }
     
     
 }
-
-
-
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,11 +101,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        print("👊 cellForRowAt is building cell at indexPath.row \(indexPath.row) with value \(partyItems[indexPath.row])")
         cell.textLabel?.text = partyPlannerArray[indexPath.row].item
         cell.detailTextLabel?.text = partyPlannerArray[indexPath.row].personResponsible
         return cell
+
     }
-    
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            partyPlannerArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let itemToMove = partyPlannerArray[sourceIndexPath.row]
+        partyPlannerArray.remove(at: sourceIndexPath.row)
+        partyPlannerArray.insert(itemToMove, at: destinationIndexPath.row)
+    }
 }
